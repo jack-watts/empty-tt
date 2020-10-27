@@ -1,0 +1,15 @@
+.tests
+.\#*
+*~
+.DS_Store
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.log
+*.bt
+*.reg
+*.zip
+*.exe
+build
