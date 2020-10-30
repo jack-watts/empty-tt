@@ -1,4 +1,30 @@
-// Package tt ...
+// Package tt enables a user to create a minimal ST 428-7 Subtitle
+// XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE
+// ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements
+// as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile
+// available at https://doi.org/10.5594/SMPTE.RDD52.2020.
+//
+/* Copyright (c) 2020, Jack Watts. All rights reserved.
+
+This program is free software : you can redistribute it and / or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see <http://www.gnu.org/licenses/>.*/
+
 package tt
 
 import (
@@ -35,7 +61,35 @@ const (
 	as          = "asdcp-wrap"
 )
 
+// The proceeding list of exported variables are to be used when calling either CreateXML()
+// or CreateXMF() functions.
 var (
+	// Text identifies that the Subtitle Text profile is to be used.
+	Txt bool
+	// Image identifies that the Subtitle Image profile is to be used.
+	Img bool
+	// Track signals that an MXF track file is to be created when using the CreateXML() function.
+	Track bool
+	// Encrypt is to be used in accordance with 'Track' as it signals that the resulting MXF is
+	// to be encrypted.
+	Encrypt bool
+	// Reel is the reel number and shall be a positive integer reflecting the reel number the XML is to be used for
+	Reel int
+	// Duration is a positive integer value that maps to the ContainerDuration entry of the resulting MXF track file.
+	Duration int
+	// Display identifies what DisplayType value to be used. 0 = MainSubtitle, >= 1 = ClosedCaption.
+	Display int
+	// Framerate results in the EditRate of the Subtitle XML file and also translates to the TimeCodeRate element.
+	Framerate string
+	// Template is to be used when wanting to use an existing XML document to template the XML's general properties.
+	Template string
+	// Title is the value that populates the ContentTitleText element.
+	Title string
+	// Language is the RFC 5646 compliant subtag as per the IANA subtag registry.
+	Language string
+	// Output is the target output directory.
+	Output string
+	// unexported variables
 	docID         string    = uuidType4()
 	mxfID         string    = uuidType4()
 	issueDate     time.Time = time.Now()
@@ -55,50 +109,50 @@ var (
 // Begin exported functions
 
 // CreateXML creates a St 428-7 compliant minimal XML document.
-func CreateXML(text, image, track, encrypt bool, reel, display, duration int, frameRate, lang, title, template, output string) error {
+func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, FrameRate, Language, Title, Template, Output string) error {
 	var subElement *Subtitle
 
-	if template != "" {
-		s, err := parseXML(template)
+	if Template != "" {
+		s, err := parseXML(Template)
 		if err != nil {
 			fmt.Printf("%s\nunable to use template, running with default values\n", err)
 		} else {
 			xmlNs = s.XMLName.Space
-			title = s.ContentTitleText
-			lang = s.Language
-			frameRate = s.EditRate[:2]
+			Title = s.ContentTitleText
+			Language = s.Language
+			Framerate = s.EditRate[:2]
 			timecodeRate = s.TimeCodeRate
 			if s.DisplayType == "MainSubtitle" {
-				display = 0
+				Display = 0
 			}
 			if s.DisplayType == "ClosedCaption" {
-				display = 1
+				Display = 1
 			}
 		}
 	}
 	dxml := SubtitleReel{
 		Xmlns:            xmlNs,
 		ID:               "urn:uuid:" + docID,
-		ContentTitleText: title,
+		ContentTitleText: Title,
 		IssueDate:        issueDate.Format(time.RFC3339)[:19] + "-00:00",
-		ReelNumber:       reel,
-		Language:         lang,
-		EditRate:         frameRate + " 1",
-		TimeCodeRate:     frameRate,
+		ReelNumber:       Reel,
+		Language:         Language,
+		EditRate:         Framerate + " 1",
+		TimeCodeRate:     Framerate,
 		StartTime:        startTime,
 		SubtitleList:     &Font{},
 	}
 
-	if display == 0 {
+	if Display == 0 {
 		dxml.DisplayType = "MainSubtitle"
 	}
-	if display >= 1 {
+	if Display >= 1 {
 		dxml.DisplayType = "ClosedCaption"
 	}
 
-	if image {
-		text = false
-		imageID := makePNG(output)
+	if Img {
+		Txt = false
+		imageID := makePNG(Output)
 		subElement = &Subtitle{
 			TimeIn:  timeIn,
 			TimeOut: timeOut,
@@ -109,7 +163,7 @@ func CreateXML(text, image, track, encrypt bool, reel, display, duration int, fr
 			},
 		}
 	}
-	if text {
+	if Txt {
 		dxml.LoadFont = &LoadFont{
 			ID:   "Arial",
 			Font: fontName,
@@ -127,19 +181,19 @@ func CreateXML(text, image, track, encrypt bool, reel, display, duration int, fr
 	dxml.SubtitleList.Subtitle = append(dxml.SubtitleList.Subtitle, subElement)
 
 	// Begin XML Writing
-	filename := docID + reelNo + strconv.Itoa(reel) + xmlFileExt
+	filename := docID + reelNo + strconv.Itoa(Reel) + xmlFileExt
 
 	if enc, err := xml.MarshalIndent(dxml, "", "  "); err == nil {
 		enc = []byte(xml.Header + string(enc))
 
 		// Write XML to StdOut
-		if output == "" {
+		if Output == "" {
 			fmt.Printf("%s\n", enc)
 			return nil
 		}
-		if output != "" {
+		if Output != "" {
 			// Write out files to given output path.
-			xmlOutputPath := filepath.Join(output, filename)
+			xmlOutputPath := filepath.Join(Output, filename)
 			f, err := os.Create(xmlOutputPath)
 			if err != nil {
 				fmt.Println(err)
@@ -158,14 +212,14 @@ func CreateXML(text, image, track, encrypt bool, reel, display, duration int, fr
 				fmt.Println(err)
 				fmt.Println("unable to resolve default font resource")
 			}
-			if err := copy(fontFileName, output); err != nil {
+			if err := copy(fontFileName, Output); err != nil {
 				fmt.Println(err)
 			}
 
 			// Handle Track File writing
-			if track {
+			if Track {
 				if testBinary() {
-					if err := CreateMXF(encrypt, frameRate, output, xmlOutputPath, reel, duration); err != nil {
+					if err := CreateMXF(Encrypt, Framerate, Output, xmlOutputPath, Reel, Duration); err != nil {
 						fmt.Println("error writing MXF")
 						return err
 					}
@@ -180,7 +234,7 @@ func CreateXML(text, image, track, encrypt bool, reel, display, duration int, fr
 }
 
 // CreateMXF creates a D-Cinema track file using pre-defined asdcp-wrap command line arguments.
-// It expects asdcp-wrap to be present at $PATH
+// It expects asdcp-wrap to be present at yout system's $PATH.
 func CreateMXF(encrypt bool, frameRate, output, filename string, reel, duration int) error {
 	mxfFilename := mxfID + reelNo + strconv.Itoa(reel) + mxfFileExt
 	outputPath := filepath.Join(output, mxfFilename)
