@@ -2,7 +2,7 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-dci-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-dci-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-dci-tt)](https://pkg.go.dev/github.com/jack-watts/empty-dci-tt)
 
-A simple tool that enables a user to create a minimal ST 428-7 Subtitle XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [https://doi.org/10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
+A simple tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
 
 ## Installation & Build
 
@@ -25,18 +25,18 @@ sh build.sh
 
 ## Usage
 
-  -T                    - write MXF trackfile, requires '-d'
-  -d <int>              - set the duration of the track file. (default 24)
-  -e                    - encrypt trackfile
-  -image                - Inidcate that image profile is to be used.
-  -l <string>           - set the RFC 5646 Language subtag (default "en")
-  -m <int>              - set the DisplayType.'0'=MainSubtitle,'1'=ClosedCaption. (default "0")
-  -o <string>           - set the output path, Default is StdOut
-  -p <string>           - set the frame rate of the track file. (default "24")
-  -r <int>              - set the ReelNumber (default 1)
-  -t <string>           - set the ContentTitleText value. (default "No Title")
-  -text                 - Inidcate that text profile is to be used. (default true)
-  -x <string>           - path to 428-7 XML to use as template
+  -T ...................- write MXF trackfile, requires '-d'  
+  -d <int>..............- set the duration of the track file. (default 24)  
+  -e ...................- encrypt trackfile  
+  -image ...............- Inidcate that image profile is to be used.  
+  -l <string>...........- set the RFC 5646 Language subtag (default "en")  
+  -m <int>..............- set the DisplayType.'0'=MainSubtitle,'1'=ClosedCaption. (default "0")  
+  -o <string>...........- set the output path, Default is StdOut  
+  -p <string>...........- set the frame rate of the track file. (default "24")  
+  -r <int>..............- set the ReelNumber (default 1)  
+  -t <string>...........- set the ContentTitleText value. (default "No Title")  
+  -text ................- Inidcate that text profile is to be used. (default true)  
+  -x <string>...........- path to 428-7 XML to use as template  
 
 ### Examples
 

@@ -28,22 +28,6 @@ import (
 	"os"
 )
 
-/*
-var (
-	text      bool
-	image     bool
-	track     bool
-	encrypt   bool
-	reel      int
-	duration  int
-	display   int
-	frameRate string
-	template  string
-	title     string
-	lang      string
-	output    string
-)
-*/
 // Execute available command line flags.
 func Execute() {
 
