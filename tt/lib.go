@@ -57,7 +57,6 @@ const (
 	timeOut     = "00:00:19:00"
 	reelNo      = "_r"
 	xmlFileExt  = ".xml"
-	mxfFileExt  = "_sub.mxf"
 	as          = "asdcp-wrap"
 )
 
@@ -102,7 +101,8 @@ var (
 		"http://www.smpte-ra.org/schemas/428-7/2010/DCST": dcst2010,
 		"http://www.smpte-ra.org/schemas/428-7/2014/DCST": dcst2014,
 	}
-	fontPath string = getFont()
+	fontPath   string = getFont()
+	mxfFileExt string = "_sub.mxf"
 )
 
 // ================================
@@ -127,6 +127,7 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 			}
 			if s.DisplayType == "ClosedCaption" {
 				Display = 1
+				mxfFileExt = "_cap.mxf"
 			}
 		}
 	}
@@ -148,6 +149,7 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 	}
 	if Display >= 1 {
 		dxml.DisplayType = "ClosedCaption"
+		mxfFileExt = "_cap.mxf"
 	}
 
 	if Img {
@@ -207,13 +209,15 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 			}
 
 			// Copy Font to output path
-			fontFileName, err := filepath.Abs(fontPath)
-			if err != nil {
-				fmt.Println(err)
-				fmt.Println("unable to resolve default font resource")
-			}
-			if err := copy(fontFileName, Output); err != nil {
-				fmt.Println(err)
+			if Txt {
+				fontFileName, err := filepath.Abs(fontPath)
+				if err != nil {
+					fmt.Println(err)
+					fmt.Println("unable to resolve default font resource")
+				}
+				if err := copy(fontFileName, Output); err != nil {
+					fmt.Println(err)
+				}
 			}
 
 			// Handle Track File writing
@@ -310,8 +314,8 @@ func makePNG(output string) string {
 				img.Set(x, y, image.Transparent)
 			}
 		}
-
-		f, err := os.Create(ID)
+		filename := filepath.Join(output, ID)
+		f, err := os.Create(filename)
 		if err != nil {
 			log.Fatal(err)
 		}
