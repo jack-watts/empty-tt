@@ -44,7 +44,7 @@ var (
 	output    string
 )
 */
-// Execute ...
+// Execute available command line flags.
 func Execute() {
 
 	flag.BoolVar(&tt.Txt, "text", true, "- Inidcate that text profile is to be used.")
