@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--   *** Frame Rate 24 ***-->
-<!--   *** urn:uuid:769e4df7-8d54-48a2-900d-2fe126484bf9 ***-->
+<!--   *** urn:uuid:4559e0ed-00c2-403b-88dd-f61c60208577 ***-->
 <dcst:SubtitleReel xmlns:dcst="http://www.smpte-ra.org/schemas/428-7/2014/DCST">
-  <dcst:Id>urn:uuid:769e4df7-8d54-48a2-900d-2fe126484bf9</dcst:Id>
+  <dcst:Id>urn:uuid:4559e0ed-00c2-403b-88dd-f61c60208577</dcst:Id>
   <dcst:ContentTitleText>ISDCFSampleEmptyTT</dcst:ContentTitleText>
-  <dcst:IssueDate>2020-10-25T23:02:15-00:00</dcst:IssueDate>
+  <dcst:IssueDate>2020-10-22T23:02:15-00:00</dcst:IssueDate>
   <dcst:ReelNumber>1</dcst:ReelNumber>
   <dcst:Language>en</dcst:Language>
   <dcst:EditRate>24 1</dcst:EditRate>
   <dcst:TimeCodeRate>24</dcst:TimeCodeRate>
   <dcst:StartTime>00:00:00:00</dcst:StartTime>
   <dcst:DisplayType>MainSubtitle</dcst:DisplayType>
-  <dcst:LoadFont ID="Arial">urn:uuid:232c45d8-fde8-4e5e-86b9-86e96354daf3</dcst:LoadFont>
   <dcst:SubtitleList>
-    <dcst:Font>
+    <dcst:Font>    
       <dcst:Subtitle TimeIn="00:00:00:04" TimeOut="00:00:00:19">
-        <dcst:Text/>
+      	<dcst:Image>urn:uuid:84f37f95-de02-49ae-8ecc-4c04de8be019</dcst:Image>
       </dcst:Subtitle>
     </dcst:Font>
   </dcst:SubtitleList>
