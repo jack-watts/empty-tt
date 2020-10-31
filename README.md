@@ -12,7 +12,7 @@ The tt library can be used in two ways;
 
 - With the command line wrapper ''empty-tt'
 
-- Or with the API directly. See /tt/lib.go or the [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-dci-tt)](https://pkg.go.dev/github.com/jack-watts/empty-dci-tt) for details.
+- Or with the API directly. See /tt/lib.go or the [Go reference](https://pkg.go.dev/github.com/jack-watts/empty-dci-tt) for details.
 
 Pre-compiled binaries are provided for convenience and can be found under [Releases](https://github.com/jack-watts/empty-dci-tt/releases).
 
@@ -25,18 +25,33 @@ sh build.sh
 
 ## Usage
 
-  -T ...................- write MXF trackfile, requires '-d'  
-  -d <int>..............- set the duration of the track file. (default 24)  
-  -e ...................- encrypt trackfile  
-  -image ...............- Inidcate that image profile is to be used.  
-  -l <string>...........- set the RFC 5646 Language subtag (default "en")  
-  -m <int>..............- set the DisplayType.'0'=MainSubtitle,'1'=ClosedCaption. (default "0")  
-  -o <string>...........- set the output path, Default is StdOut  
-  -p <string>...........- set the frame rate of the track file. (default "24")  
-  -r <int>..............- set the ReelNumber (default 1)  
-  -t <string>...........- set the ContentTitleText value. (default "No Title")  
-  -text ................- Inidcate that text profile is to be used. (default true)  
-  -x <string>...........- path to 428-7 XML to use as template  
+```shell
+  -T            - write MXF trackfile, requires '-d'  
+
+  -d <int>      - set the duration of the track file. (default 24)  
+
+  -e            - encrypt trackfile  
+
+  -image        - Inidcate that image profile is to be used.  
+
+  -l <string>   - set the RFC 5646 Language subtag (default "en")  
+
+  -m <int>      - set the DisplayType.'0'=MainSubtitle,'1'=ClosedCaption. (default "0")  
+
+  -o <string>   - set the output path, Default is StdOut  
+
+  -p <string>   - set the frame rate of the track file. (default "24")  
+
+  -r <int>      - set the ReelNumber (default 1)  
+
+  -t <string>   - set the ContentTitleText value. (default "No Title")  
+
+  -text         - Inidcate that text profile is to be used. (default true)  
+
+  -x <string>   - path to 428-7 XML to use as template  
+```
+
+
 
 ### Examples
 
@@ -66,7 +81,7 @@ $ empty-tt -text -T -p 24 -m 0 -r 1 -t "MyTitle" -d 48 -o <path-to-dir>
 $ empty-tt -text -T -e -p 24 -m -r 1 -t "MyTitle" -d 48 -x <path-to-xml-file> -o <path-to-dir>
 ```
 
-#### Notes
+### Notes
 
 1. Writes to StdOut if no output path is specified.
 
@@ -91,6 +106,11 @@ $ empty-tt -text -T -e -p 24 -m -r 1 -t "MyTitle" -d 48 -x <path-to-xml-file> -o
     1. XML: uuid_reelNo.xml
     
     2. MXF: uuid_reelNo_sub.mxf | uuid_reelNo_cap.mxf
+
+## Disclaimer
+Although care has been taken to ensure that default behaviour of this program conforms to the constraints defined in the ST 429-2 and RDD 52 documents, it is permissible for non-compliant files to be generated. The sole purpose of this tool is to fulfil testing and educational criteria. Where there is any reliance on its use in production, the following notice is to be observed.
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
 
 ## License
 
