@@ -1,8 +1,8 @@
 # Empty DCI TT
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-dci-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-dci-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-dci-tt)](https://pkg.go.dev/github.com/jack-watts/empty-dci-tt)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-dci-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-dci-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-dci-tt)](https://jack-watts.github.io/empty-dci-tt) ![Build](https://github.com/jack-watts/empty-dci-tt/workflows/Build/badge.svg)
 
-A simple tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
+A simple tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE ST 428-7 D-Cinema Timed Text Track File - Minimal Empty Document Requirements as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
 
 ## Installation & Build
 
@@ -12,7 +12,7 @@ The tt library can be used in two ways;
 
 - With the command line wrapper ''empty-tt'
 
-- Or with the API directly. See /tt/lib.go or the [Go reference](https://pkg.go.dev/github.com/jack-watts/empty-dci-tt) for details.
+- Or with the API directly. See /tt/lib.go or the [Go reference](https://jack-watts.github.io/empty-dci-tt) for details.
 
 Pre-compiled binaries are provided for convenience and can be found under [Releases](https://github.com/jack-watts/empty-dci-tt/releases).
 
@@ -101,7 +101,9 @@ $ empty-tt -text -T -e -p 24 -m -r 1 -t "MyTitle" -d 48 -x <path-to-xml-file> -o
 
 9. Available flags can be invoked out of order.
 
-10. file prefix and suffix are handled automatically and are structed as follows:
+10. The TimeIn value will adjust automatically depending if the Reel number is >= 1.
+
+11. file prefix and suffix are handled automatically and are structed as follows:
     
     1. XML: uuid_reelNo.xml
     
