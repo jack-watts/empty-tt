@@ -52,11 +52,13 @@ const (
 	fontName    = "232c45d8-fde8-4e5e-86b9-86e96354daf3"
 	defaultFont = "resources/font/" + fontName
 	startTime   = "00:00:00:00"
-	timeIn      = "00:00:04:00"
-	timeOut     = "00:00:19:00"
 	reelNo      = "_r"
 	xmlFileExt  = ".xml"
 	as          = "asdcp-wrap"
+	minDuration = 15
+	r1TimeIn    = 4
+	defTimeIn   = 1
+	urn         = "urn:uuid:"
 )
 
 // The proceeding list of exported variables are to be used when calling either CreateXML()
@@ -102,6 +104,7 @@ var (
 	}
 	fontPath   string = getFont()
 	mxfFileExt string = "_sub.mxf"
+	frameCount int
 )
 
 // ================================
@@ -110,7 +113,7 @@ var (
 // CreateXML creates a St 428-7 compliant minimal XML document.
 func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, FrameRate, Language, Title, Template, Output string) error {
 	var subElement *Subtitle
-
+	fps, _ := strconv.Atoi(Framerate)
 	if Template != "" {
 		s, err := parseXML(Template)
 		if err != nil {
@@ -150,16 +153,15 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 		dxml.DisplayType = "ClosedCaption"
 		mxfFileExt = "_cap.mxf"
 	}
-
 	if Img {
 		Txt = false
 		imageID := makePNG(Output)
 		subElement = &Subtitle{
-			TimeIn:  timeIn,
-			TimeOut: timeOut,
+			TimeIn:  getTimeIn(fps),
+			TimeOut: getTimeOut(fps),
 			Image: []*Image{
 				&Image{
-					Image: "urn:uuid:" + imageID,
+					Image: urn + imageID,
 				},
 			},
 		}
@@ -167,11 +169,11 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 	if Txt {
 		dxml.LoadFont = &LoadFont{
 			ID:   "Arial",
-			Font: fontName,
+			Font: urn + fontName,
 		}
 		subElement = &Subtitle{
-			TimeIn:  timeIn,
-			TimeOut: timeOut,
+			TimeIn:  getTimeIn(fps),
+			TimeOut: getTimeOut(fps),
 			Text: []*Text{
 				&Text{
 					Text: "",
@@ -411,6 +413,29 @@ func testBinary() bool {
 	}
 
 	return false
+}
+
+// getTimeIn generates a compliant Subtitle TimeIn attribute value.
+func getTimeIn(fps int) string {
+	if Reel == 1 {
+		frameCount = r1TimeIn * fps
+	} else {
+		frameCount = defTimeIn * fps
+	}
+	return getTimecode(frameCount)
+}
+
+// getTimeOut generates a compliant Subtitle TimeOut attribute value.
+func getTimeOut(fps int) string {
+	frameCount = frameCount + minDuration
+	return getTimecode(frameCount)
+}
+
+// getTimecode sets parameters to generate acompliant timecode.
+func getTimecode(frameCount int) string {
+	tc, _ := NewTimecode(getFloat(Framerate))
+	tc.SetFrames(frameCount)
+	return tc.GetTimeCode()
 }
 
 // End unexported functions
