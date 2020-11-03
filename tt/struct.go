@@ -1,10 +1,6 @@
-// Package tt enables a user to create a minimal ST 428-7 Subtitle
-// XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE
-// ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements
-// as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile
-// available at https://doi.org/10.5594/SMPTE.RDD52.2020.
-//
-/* Copyright (c) 2020, Jack Watts. All rights reserved.
+package tt
+
+/*Copyright (c) 2020, Jack Watts. All rights reserved.
 
 This program is free software : you can redistribute it and / or modify
 it under the terms of the GNU General Public License as published by
@@ -24,7 +20,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
 You should have received a copy of the GNU General Public License
 along with this program.If not, see http://www.gnu.org/licenses.*/
-package tt
 
 import (
 	"encoding/xml"

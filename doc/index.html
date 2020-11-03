@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>tt - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.14.4";</script>
+<script src="lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package tt
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "jack-watts/empty-dci-tt/tt"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package tt enables a user to create a minimal ST 428-7 Subtitle
+XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE
+ST 428-7 D-Cinema Timed Text Track File - Minimal Empty Document Requirements
+as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile
+available at <a href="https://doi.org/10.5594/SMPTE.RDD52.2020">https://doi.org/10.5594/SMPTE.RDD52.2020</a>.
+</p>
+<pre>Copyright (c) 2020, Jack Watts. All rights reserved.
+</pre>
+<p>
+This program is free software : you can redistribute it and / or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+</p>
+<p>
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR &ldquo;AS IS&rdquo; AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+</p>
+<p>
+You should have received a copy of the GNU General Public License
+along with this program.If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#CreateMXF">func CreateMXF(encrypt bool, frameRate, output, filename string, reel, duration int) error</a></dd>
+			
+				
+				<dd><a href="#CreateXML">func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, FrameRate, Language, Title, Template, Output string) error</a></dd>
+			
+			
+				
+				<dd><a href="#Font">type Font</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Image">type Image</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LoadFont">type LoadFont</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NestedFont">type NestedFont</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Rt">type Rt</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Ruby">type Ruby</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Subtitle">type Subtitle</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SubtitleReel">type SubtitleReel</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Text">type Text</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Timecode">type Timecode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTimecode">func NewTimecode(frameRate float64) (*Timecode, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Timecode.GetTimeCode">func (tc *Timecode) GetTimeCode() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Timecode.SetFrames">func (tc *Timecode) SetFrames(frameCount int)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/jack-watts/empty-dci-tt/tt/lib.go">lib.go</a>
+			
+				<a href="/src/jack-watts/empty-dci-tt/tt/struct.go">struct.go</a>
+			
+				<a href="/src/jack-watts/empty-dci-tt/tt/timecode.go">timecode.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>
+The proceeding list of exported variables are to be used when calling either CreateXML()
+or CreateXMF() functions.
+</p>
+
+				<pre>var (
+    <span class="comment">// Text identifies that the Subtitle Text profile is to be used.</span>
+    <span id="Txt">Txt</span> <a href="/pkg/builtin/#bool">bool</a>
+    <span class="comment">// Image identifies that the Subtitle Image profile is to be used.</span>
+    <span id="Img">Img</span> <a href="/pkg/builtin/#bool">bool</a>
+    <span class="comment">// Track signals that an MXF track file is to be created when using the CreateXML() function.</span>
+    <span id="Track">Track</span> <a href="/pkg/builtin/#bool">bool</a>
+    <span class="comment">// Encrypt is to be used in accordance with &#39;Track&#39; as it signals that the resulting MXF is</span>
+    <span class="comment">// to be encrypted.</span>
+    <span id="Encrypt">Encrypt</span> <a href="/pkg/builtin/#bool">bool</a>
+    <span class="comment">// Reel is the reel number and shall be a positive integer reflecting the reel number the XML is to be used for</span>
+    <span id="Reel">Reel</span> <a href="/pkg/builtin/#int">int</a>
+    <span class="comment">// Duration is a positive integer value that maps to the ContainerDuration entry of the resulting MXF track file.</span>
+    <span id="Duration">Duration</span> <a href="/pkg/builtin/#int">int</a>
+    <span class="comment">// Display identifies what DisplayType value to be used. 0 = MainSubtitle, &gt;= 1 = ClosedCaption.</span>
+    <span id="Display">Display</span> <a href="/pkg/builtin/#int">int</a>
+    <span class="comment">// Framerate results in the EditRate of the Subtitle XML file and also translates to the TimeCodeRate element.</span>
+    <span id="Framerate">Framerate</span> <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// Template is to be used when wanting to use an existing XML document to template the XML&#39;s general properties.</span>
+    <span id="Template">Template</span> <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// Title is the value that populates the ContentTitleText element.</span>
+    <span id="Title">Title</span> <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// Language is the RFC 5646 compliant subtag as per the IANA subtag registry.</span>
+    <span id="Language">Language</span> <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// Output is the target output directory.</span>
+    <span id="Output">Output</span> <a href="/pkg/builtin/#string">string</a>
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="CreateMXF">func <a href="/src/jack-watts/empty-dci-tt/tt/lib.go?s=7336:7426#L233">CreateMXF</a>
+				<a class="permalink" href="#CreateMXF">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CreateMXF(encrypt <a href="/pkg/builtin/#bool">bool</a>, frameRate, output, filename <a href="/pkg/builtin/#string">string</a>, reel, duration <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>
+CreateMXF creates a D-Cinema track file using pre-defined asdcp-wrap command line arguments.
+It expects asdcp-wrap to be present at yout system&#39;s $PATH.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="CreateXML">func <a href="/src/jack-watts/empty-dci-tt/tt/lib.go?s=4181:4314#L104">CreateXML</a>
+				<a class="permalink" href="#CreateXML">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CreateXML(Txt, Img, Track, Encrypt <a href="/pkg/builtin/#bool">bool</a>, Reel, Display, Duration <a href="/pkg/builtin/#int">int</a>, FrameRate, Language, Title, Template, Output <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>
+CreateXML creates a St 428-7 compliant minimal XML document.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Font">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=2291:3053#L45">Font</a>
+				<a class="permalink" href="#Font">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Font as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Font">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Font</a>
+</p>
+
+			<pre>type Font struct {
+<span id="Font.ID"></span>    ID           <a href="/pkg/builtin/#string">string</a>      `xml:&#34;ID,attr,omitempty&#34;`
+<span id="Font.Weight"></span>    Weight       <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Weight,attr,omitempty&#34;`
+<span id="Font.Size"></span>    Size         <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Size,attr,omitempty&#34;`
+<span id="Font.Color"></span>    Color        <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Color,attr,omitempty&#34;`
+<span id="Font.Effect"></span>    Effect       <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Effect,attr,omitempty&#34;`
+<span id="Font.EffectColor"></span>    EffectColor  <a href="/pkg/builtin/#string">string</a>      `xml:&#34;EffectColor,attr,omitempty&#34;`
+<span id="Font.EffectSize"></span>    EffectSize   <a href="/pkg/builtin/#string">string</a>      `xml:&#34;EffectSize,attr,omitempty&#34;`
+<span id="Font.Italic"></span>    Italic       <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Italic,attr,omitempty&#34;`
+<span id="Font.Underline"></span>    Underline    <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Underline,attr,omitempty&#34;`
+<span id="Font.AspectAdjust"></span>    AspectAdjust <a href="/pkg/builtin/#string">string</a>      `xml:&#34;AspectAdjust,attr,omitempty&#34;`
+<span id="Font.Spacing"></span>    Spacing      <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Spacing,attr,omitempty&#34;`
+<span id="Font.Feather"></span>    Feather      <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Feather,attr,omitempty&#34;`
+<span id="Font.Subtitle"></span>    Subtitle     []*<a href="#Subtitle">Subtitle</a> `xml:&#34;Subtitle&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Image">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=5078:5541#L105">Image</a>
+				<a class="permalink" href="#Image">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Image as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Image">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Image</a>
+</p>
+
+			<pre>type Image struct {
+<span id="Image.XMLName"></span>    XMLName   <a href="/pkg/encoding/xml/">xml</a>.<a href="/pkg/encoding/xml/#Name">Name</a> `xml:&#34;Image&#34;`
+<span id="Image.Image"></span>    Image     <a href="/pkg/builtin/#string">string</a>   `xml:&#34;,chardata&#34;`
+<span id="Image.ImageType"></span>    ImageType <a href="/pkg/builtin/#string">string</a>   `xml:&#34;ImageType,omitempty&#34;`
+<span id="Image.Halign"></span>    Halign    <a href="/pkg/builtin/#string">string</a>   `xml:&#34;Halign,attr,omitempty&#34;`
+<span id="Image.Hposition"></span>    Hposition <a href="/pkg/builtin/#string">string</a>   `xml:&#34;Hposition,attr,omitempty&#34;`
+<span id="Image.Valign"></span>    Valign    <a href="/pkg/builtin/#string">string</a>   `xml:&#34;Valign,attr,omitempty&#34;`
+<span id="Image.Vposition"></span>    Vposition <a href="/pkg/builtin/#string">string</a>   `xml:&#34;Vposition,attr,omitempty&#34;`
+<span id="Image.Zposition"></span>    Zposition <a href="/pkg/builtin/#string">string</a>   `xml:&#34;Zposition,attr,omitempty&#34;`
+<span id="Image.VariableZ"></span>    VariableZ <a href="/pkg/builtin/#string">string</a>   `xml:&#34;VariableZ,attr,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LoadFont">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=2131:2218#L39">LoadFont</a>
+				<a class="permalink" href="#LoadFont">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+LoadFont as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#LoadFont">http://www.smpte-ra.org/schemas/428-7/2014/DCST#LoadFont</a>
+</p>
+
+			<pre>type LoadFont struct {
+<span id="LoadFont.ID"></span>    ID   <a href="/pkg/builtin/#string">string</a> `xml:&#34;ID,attr&#34;`
+<span id="LoadFont.Font"></span>    Font <a href="/pkg/builtin/#string">string</a> `xml:&#34;,chardata&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NestedFont">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=3676:4380#L74">NestedFont</a>
+				<a class="permalink" href="#NestedFont">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NestedFont as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#NestedFont">http://www.smpte-ra.org/schemas/428-7/2014/DCST#NestedFont</a>
+</p>
+
+			<pre>type NestedFont struct {
+<span id="NestedFont.ID"></span>    ID           <a href="/pkg/builtin/#string">string</a> `xml:&#34;ID,attr,omitempty&#34;`
+<span id="NestedFont.Weight"></span>    Weight       <a href="/pkg/builtin/#string">string</a> `xml:&#34;Weight,attr,omitempty&#34;`
+<span id="NestedFont.Size"></span>    Size         <a href="/pkg/builtin/#string">string</a> `xml:&#34;Size,attr,omitempty&#34;`
+<span id="NestedFont.Color"></span>    Color        <a href="/pkg/builtin/#string">string</a> `xml:&#34;Color,attr,omitempty&#34;`
+<span id="NestedFont.Effect"></span>    Effect       <a href="/pkg/builtin/#string">string</a> `xml:&#34;Effect,attr,omitempty&#34;`
+<span id="NestedFont.EffectColor"></span>    EffectColor  <a href="/pkg/builtin/#string">string</a> `xml:&#34;EffectColor,attr,omitempty&#34;`
+<span id="NestedFont.EffectSize"></span>    EffectSize   <a href="/pkg/builtin/#string">string</a> `xml:&#34;EffectSize,attr,omitempty&#34;`
+<span id="NestedFont.Italic"></span>    Italic       <a href="/pkg/builtin/#string">string</a> `xml:&#34;Italic,attr,omitempty&#34;`
+<span id="NestedFont.Underline"></span>    Underline    <a href="/pkg/builtin/#string">string</a> `xml:&#34;Underline,attr,omitempty&#34;`
+<span id="NestedFont.AspectAdjust"></span>    AspectAdjust <a href="/pkg/builtin/#string">string</a> `xml:&#34;AspectAdjust,attr,omitempty&#34;`
+<span id="NestedFont.Spacing"></span>    Spacing      <a href="/pkg/builtin/#string">string</a> `xml:&#34;Spacing,attr,omitempty&#34;`
+<span id="NestedFont.Feather"></span>    Feather      <a href="/pkg/builtin/#string">string</a> `xml:&#34;Feather,attr,omitempty&#34;`
+<span id="NestedFont.Text"></span>    Text         <a href="/pkg/builtin/#string">string</a> `xml:&#34;,chardata&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Rt">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=5780:6016#L124">Rt</a>
+				<a class="permalink" href="#Rt">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Rt as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Rt">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Rt</a>
+</p>
+
+			<pre>type Rt struct {
+<span id="Rt.Size"></span>    Size         <a href="/pkg/builtin/#string">string</a> `xml:&#34;Size,attr&#34;`
+<span id="Rt.Position"></span>    Position     <a href="/pkg/builtin/#string">string</a> `xml:&#34;Position,attr&#34;`
+<span id="Rt.Offset"></span>    Offset       <a href="/pkg/builtin/#string">string</a> `xml:&#34;Offset,attr&#34;`
+<span id="Rt.Spacing"></span>    Spacing      <a href="/pkg/builtin/#string">string</a> `xml:&#34;Spacing,attr&#34;`
+<span id="Rt.AspectAdjust"></span>    AspectAdjust <a href="/pkg/builtin/#string">string</a> `xml:&#34;AspectAdjust,attr&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Ruby">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=5614:5711#L118">Ruby</a>
+				<a class="permalink" href="#Ruby">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Ruby as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Ruby">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Ruby</a>
+</p>
+
+			<pre>type Ruby struct {
+<span id="Ruby.Rb"></span>    Rb <a href="/pkg/builtin/#string">string</a> `xml:&#34;Ruby&gt;Rb,omitempty&#34;`
+<span id="Ruby.Rt"></span>    Rt *<a href="#Rt">Rt</a>    `xml:&#34;Ruby&gt;Rt,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Subtitle">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=3134:3591#L62">Subtitle</a>
+				<a class="permalink" href="#Subtitle">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Subtitle as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Subtitle">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Subtitle</a>
+</p>
+
+			<pre>type Subtitle struct {
+<span id="Subtitle.SpotNumber"></span>    SpotNumber   <a href="/pkg/builtin/#string">string</a>      `xml:&#34;SpotNumber,attr,omitempty&#34;`
+<span id="Subtitle.TimeIn"></span>    TimeIn       <a href="/pkg/builtin/#string">string</a>      `xml:&#34;TimeIn,attr&#34;`
+<span id="Subtitle.TimeOut"></span>    TimeOut      <a href="/pkg/builtin/#string">string</a>      `xml:&#34;TimeOut,attr&#34;`
+<span id="Subtitle.FadeUpTime"></span>    FadeUpTime   <a href="/pkg/builtin/#string">string</a>      `xml:&#34;FadeUpTime,attr,omitempty&#34;`
+<span id="Subtitle.FadeDownTime"></span>    FadeDownTime <a href="/pkg/builtin/#string">string</a>      `xml:&#34;FadeDownTime,attr,omitempty&#34;`
+<span id="Subtitle.Text"></span>    Text         []*<a href="#Text">Text</a>     `xml:&#34;Text,allowempty&#34;`
+<span id="Subtitle.Image"></span>    Image        []*<a href="#Image">Image</a>    `xml:&#34;Image,omitempty&#34;`
+<span id="Subtitle.Font"></span>    Font         *<a href="#NestedFont">NestedFont</a> `xml:&#34;Font,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SubtitleReel">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=1317:2050#L21">SubtitleReel</a>
+				<a class="permalink" href="#SubtitleReel">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+SubtitleReel as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST">http://www.smpte-ra.org/schemas/428-7/2014/DCST</a>
+</p>
+
+			<pre>type SubtitleReel struct {
+<span id="SubtitleReel.XMLName"></span>    XMLName          <a href="/pkg/encoding/xml/">xml</a>.<a href="/pkg/encoding/xml/#Name">Name</a>  `xml:&#34;SubtitleReel&#34;`
+<span id="SubtitleReel.Xmlns"></span>    Xmlns            <a href="/pkg/builtin/#string">string</a>    `xml:&#34;xmlns,attr,omitempty&#34;`
+<span id="SubtitleReel.ID"></span>    ID               <a href="/pkg/builtin/#string">string</a>    `xml:&#34;Id&#34;`
+<span id="SubtitleReel.ContentTitleText"></span>    ContentTitleText <a href="/pkg/builtin/#string">string</a>    `xml:&#34;ContentTitleText,omitempty&#34;`
+<span id="SubtitleReel.IssueDate"></span>    IssueDate        <a href="/pkg/builtin/#string">string</a>    `xml:&#34;IssueDate&#34;`
+<span id="SubtitleReel.ReelNumber"></span>    ReelNumber       <a href="/pkg/builtin/#int">int</a>       `xml:&#34;ReelNumber&#34;`
+<span id="SubtitleReel.Language"></span>    Language         <a href="/pkg/builtin/#string">string</a>    `xml:&#34;Language&#34;`
+<span id="SubtitleReel.EditRate"></span>    EditRate         <a href="/pkg/builtin/#string">string</a>    `xml:&#34;EditRate&#34;`
+<span id="SubtitleReel.TimeCodeRate"></span>    TimeCodeRate     <a href="/pkg/builtin/#string">string</a>    `xml:&#34;TimeCodeRate&#34;`
+<span id="SubtitleReel.StartTime"></span>    StartTime        <a href="/pkg/builtin/#string">string</a>    `xml:&#34;StartTime&#34;`
+<span id="SubtitleReel.DisplayType"></span>    DisplayType      <a href="/pkg/builtin/#string">string</a>    `xml:&#34;DisplayType&#34;`
+<span id="SubtitleReel.LoadFont"></span>    LoadFont         *<a href="#LoadFont">LoadFont</a> `xml:&#34;LoadFont,omitempty&#34;`
+<span id="SubtitleReel.SubtitleList"></span>    SubtitleList     *<a href="#Font">Font</a>     `xml:&#34;SubtitleList&gt;Font&#34;`
+<span id="SubtitleReel.Filename"></span>    Filename         <a href="/pkg/builtin/#string">string</a>    `xml:&#34;,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Text">type <a href="/src/jack-watts/empty-dci-tt/tt/struct.go?s=4453:5003#L91">Text</a>
+				<a class="permalink" href="#Text">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Text as per <a href="http://www.smpte-ra.org/schemas/428-7/2014/DCST#Text">http://www.smpte-ra.org/schemas/428-7/2014/DCST#Text</a>
+</p>
+
+			<pre>type Text struct {
+<span id="Text.Text"></span>    Text      <a href="/pkg/builtin/#string">string</a>      `xml:&#34;,chardata&#34;`
+<span id="Text.Halign"></span>    Halign    <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Halign,attr,omitempty&#34;`
+<span id="Text.Hposition"></span>    Hposition <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Hposition,attr,omitempty&#34;`
+<span id="Text.Valign"></span>    Valign    <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Valign,attr,omitempty&#34;`
+<span id="Text.Vposition"></span>    Vposition <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Vposition,attr,omitempty&#34;`
+<span id="Text.Direction"></span>    Direction <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Direction,attr,omitempty&#34;`
+<span id="Text.Zposition"></span>    Zposition <a href="/pkg/builtin/#string">string</a>      `xml:&#34;Zposition,attr,omitempty&#34;`
+<span id="Text.VariableZ"></span>    VariableZ <a href="/pkg/builtin/#string">string</a>      `xml:&#34;VariableZ,attr,omitempty&#34;`
+<span id="Text.Font"></span>    Font      *<a href="#NestedFont">NestedFont</a> `xml:&#34;Font,omitempty&#34;`
+<span id="Text.Ruby"></span>    Ruby      []*<a href="#Ruby">Ruby</a>     `xml:&#34;Ruby,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Timecode">type <a href="/src/jack-watts/empty-dci-tt/tt/timecode.go?s=1504:1641#L31">Timecode</a>
+				<a class="permalink" href="#Timecode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Timecode struct.
+</p>
+
+			<pre>type Timecode struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTimecode">func <a href="/src/jack-watts/empty-dci-tt/tt/timecode.go?s=1717:1771#L41">NewTimecode</a>
+					<a class="permalink" href="#NewTimecode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTimecode(frameRate <a href="/pkg/builtin/#float64">float64</a>) (*<a href="#Timecode">Timecode</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>
+NewTimecode initialises a new timecode type from a given framerate.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Timecode.GetTimeCode">func (*Timecode) <a href="/src/jack-watts/empty-dci-tt/tt/timecode.go?s=2111:2151#L57">GetTimeCode</a>
+					<a class="permalink" href="#Timecode.GetTimeCode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tc *<a href="#Timecode">Timecode</a>) GetTimeCode() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>
+GetTimeCode method generates a SMPTE timcode when called against type Timecode.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Timecode.SetFrames">func (*Timecode) <a href="/src/jack-watts/empty-dci-tt/tt/timecode.go?s=2663:2708#L76">SetFrames</a>
+					<a class="permalink" href="#Timecode.SetFrames">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tc *<a href="#Timecode">Timecode</a>) SetFrames(frameCount <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>
+SetFrames sets the frame count in type Timecode.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.14.4.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
