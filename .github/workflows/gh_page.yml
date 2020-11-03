@@ -1,4 +1,4 @@
-name: build and test
+name: gh-page
 
 on: [push, pull_request]
       
@@ -13,5 +13,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./doc
-        branch: gh-pages      
         force_orphan: true
