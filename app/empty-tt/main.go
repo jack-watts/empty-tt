@@ -1,4 +1,4 @@
-// Package cmd adds command line flags to the module
+// Package ett adds command line flags to the module
 /*Copyright (c) 2020, Jack Watts. All rights reserved.
 
 This program is free software : you can redistribute it and / or modify
@@ -19,17 +19,22 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
 You should have received a copy of the GNU General Public License
 along with this program.If not, see <http://www.gnu.org/licenses/>.*/
-package cmd
+package ett
 
 import (
 	"flag"
 	"fmt"
-	"jack-watts/empty-dci-tt/tt"
 	"os"
+
+	"github.com/jack-watts/empty-tt/pkg/tt"
 )
 
-// Execute available command line flags.
-func Execute() {
+func main() {
+	run()
+}
+
+// run available command line flags.
+func run() {
 
 	flag.BoolVar(&tt.Txt, "text", true, "- Inidcate that text profile is to be used.")
 	flag.BoolVar(&tt.Img, "image", false, "- Inidcate that image profile is to be used.")
