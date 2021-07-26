@@ -1,17 +1,4 @@
 #!/usr/bin/env bashTIME=$(date)
-# Set version details
-LASTVERSION=$(git tag | tail -1)
-if [ -z "$LASTVERSION" ]; then
-    LASTVERSION="0.1.0"
-fi
-if [ -n "$LASTVERSION" ]; then
-    major=`printf $LASTVERSION | cut -d. -f1`
-    minor=`printf $LASTVERSION | cut -d. -f2`
-    patch=`printf $LASTVERSION | cut -d. -f3`
-    patch=`expr $patch + 1`
-fi
-VERSION=$major"."$minor"."$patch
-
 # set exit status
 EXIT_STATUS=$?
 
@@ -24,7 +11,7 @@ BUILD_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 
 cd build/
 printf "Building empty-tt..."
-if go build -o bin/empty-tt app/empty-tt/main.go; then 
+if go build -o bin/empty-tt ../app/empty-tt/main.go; then 
     printf "\rempty-tt: Build Succeeded\n"
 else
     printf "\rempty-tt: Build Failed\n"
