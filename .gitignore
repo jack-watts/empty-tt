@@ -14,3 +14,4 @@
 *.exe
 build
 bin
+vendor/*
