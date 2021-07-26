@@ -24,7 +24,7 @@ BUILD_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 
 cd build/
 printf "Building empty-tt..."
-if go build -o bin/empty-tt ../main.go; then 
+if go build -o bin/empty-tt app/empty-tt/main.go; then 
     printf "\rempty-tt: Build Succeeded\n"
 else
     printf "\rempty-tt: Build Failed\n"
