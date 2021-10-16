@@ -1,8 +1,7 @@
-// Package tt enables a user to create a minimal ST 428-7 Subtitle
-// XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE
-// ST 428-7 D-Cinema Distribution Master Subtitle - Minimal Empty Document Requirements
-// as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile
-// available at https://doi.org/10.5594/SMPTE.RDD52.2020.
+// Package tt enables a user to create a minimal ST 428-7 Subtitle XML Document
+// in accordance with SMPTE Public CD of SMPTE RP 428-22 1ED - D-Cinema Distribution
+// Master – Minimal Timed Text XML Requirements as per requirements stipulated
+// in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at 10.5594/SMPTE.RDD52.2020.
 //
 /* Copyright (c) 2020, Jack Watts. All rights reserved.
 
