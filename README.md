@@ -1,8 +1,8 @@
-# Empty DCI TT
+# Empty TT
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-dci-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-dci-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-tt)](https://pkg.go.dev/github.com/jack-watts/empty-tt) ![Build](https://github.com/jack-watts/empty-dci-tt/workflows/Build/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-tt)](https://pkg.go.dev/github.com/jack-watts/empty-tt) ![Build](https://github.com/jack-watts/empty-tt/workflows/Build/badge.svg)
 
-A simple tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with ISDCF Technicial Doc 16 - SMPTE ST 428-7 D-Cinema Timed Text Track File - Minimal Empty Document Requirements as per said requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
+A tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with SMPTE Public CD of [SMPTE RP 428-22 1ED - D-Cinema Distribution Master – Minimal Timed Text XML Requirements](https://github.com/SMPTE/rp428-22) as per requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
 
 ## Installation & Build
 
@@ -12,9 +12,9 @@ The tt library can be used in two ways;
 
 - With the command line wrapper ''empty-tt'
 
-- Or with the API directly. See /tt/lib.go or the [Go reference](https://jack-watts.github.io/empty-dci-tt) for details.
+- Or with the API directly. See /tt/tt.go or the [Go reference](https://pkg.go.dev/github.com/jack-watts/empty-tt) for details.
 
-Pre-compiled binaries are provided for convenience and can be found under [Releases](https://github.com/jack-watts/empty-dci-tt/releases).
+Pre-compiled binaries are provided for convenience and can be found under [Releases](https://github.com/jack-watts/empty-tt/releases).
 
 To build from source using Go
 
@@ -51,11 +51,9 @@ sh build.sh
   -x <string>   - path to 428-7 XML to use as template  
 ```
 
-
-
 ### Examples
 
-The follwoing examples showcase the different command expressions that can be used.
+The following examples showcase the different command expressions that can be used.
 
 **1. Create a MainSubtitle Text profile document**
 
@@ -116,4 +114,4 @@ THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.
 
 ## License
 
-See [GPL-3.0 License](https://github.com/jack-watts/empty-dci-tt/blob/main/LICENSE).
+See [GPL-3.0 License](https://github.com/jack-watts/empty-tt/blob/main/LICENSE).
