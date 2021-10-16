@@ -168,7 +168,7 @@ func CreateXML(Txt, Img, Track, Encrypt bool, Reel, Display, Duration int, Frame
 	}
 	if Txt {
 		dxml.LoadFont = &LoadFont{
-			ID:   "Arial",
+			ID:   "MinRefFont",
 			Font: urn + fontName,
 		}
 		subElement = &Subtitle{
