@@ -1,6 +1,8 @@
 package tt
 
-/*Copyright (c) 2020, Jack Watts. All rights reserved.
+/*
+
+Written by Jack Watts for SMPTE Standards TC 27C Community.
 
 This program is free software : you can redistribute it and / or modify
 it under the terms of the GNU General Public License as published by
