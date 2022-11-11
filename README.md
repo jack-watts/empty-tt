@@ -1,6 +1,6 @@
 # Empty TT
 
-> This repo is deprecated and has moved to an official repo within SMPTE found here: https://github.com/SMPTE/rp428-22a. It remains here for archive purposes.
+> This repo is deprecated and remains here for archive purposes. It has moved to an official repo within SMPTE found here: https://github.com/SMPTE/rp428-22a where all future work will take place.
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-tt)](https://pkg.go.dev/github.com/jack-watts/empty-tt) ![Build](https://github.com/jack-watts/empty-tt/workflows/Build/badge.svg)
 
