@@ -1,5 +1,7 @@
 # Empty TT
 
+> This repo is deprecated and has moved to an official repo within SMPTE found here: https://github.com/SMPTE/rp428-22a. It remains here for archive purposes.
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/jack-watts/empty-tt)](https://goreportcard.com/report/github.com/jack-watts/empty-tt) [![PkgGoDev](https://pkg.go.dev/badge/github.com/jack-watts/empty-tt)](https://pkg.go.dev/github.com/jack-watts/empty-tt) ![Build](https://github.com/jack-watts/empty-tt/workflows/Build/badge.svg)
 
 A tool that enables a user to create a minimal [ST 428-7 Subtitle](https://doi.org/10.5594/SMPTE.ST428-7.2014) XML Document in accordance with SMPTE Public CD of [SMPTE RP 428-22 1ED - D-Cinema Distribution Master – Minimal Timed Text XML Requirements](https://github.com/SMPTE/rp428-22) as per requirements stipulated in RDD 52 - SMPTE DCP Bv2.1 Application Profile available at [10.5594/SMPTE.RDD52.2020](https://doi.org/10.5594/SMPTE.RDD52.2020).
@@ -108,6 +110,7 @@ $ empty-tt -text -T -e -p 24 -m -r 1 -t "MyTitle" -d 48 -x <path-to-xml-file> -o
     2. MXF: uuid_reelNo_sub.mxf | uuid_reelNo_cap.mxf
 
 ## Disclaimer
+
 Although care has been taken to ensure that default behaviour of this program conforms to the constraints defined in the ST 429-2 and RDD 52 documents, it is permissible for non-compliant files to be generated. The sole purpose of this tool is to fulfil testing and educational criteria. Where there is any reliance on its use in production, the following notice is to be observed.
 
 THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
